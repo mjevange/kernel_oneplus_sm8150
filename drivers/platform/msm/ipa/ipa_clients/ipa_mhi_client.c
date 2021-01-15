@@ -1675,8 +1675,7 @@ int ipa_mhi_connect_pipe(struct ipa_mhi_connect_params *in, u32 *clnt_hdl)
 		internal.start.gsi.mhi = &channel->ch_scratch.mhi;
 		internal.start.gsi.cached_gsi_evt_ring_hdl =
 				&channel->cached_gsi_evt_ring_hdl;
-		internal.start.gsi.evchid = channel->ch_ctx_host.erindex -
-				ipa_mhi_client_ctx->first_er_idx;
+		internal.start.gsi.evchid = channel->index;
 
 		res = ipa_connect_mhi_pipe(&internal, clnt_hdl);
 		if (res) {
